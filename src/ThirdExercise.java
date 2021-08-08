@@ -1,3 +1,5 @@
+import fallout.Fallout;
+
 public class ThirdExercise {
 
     public static void main(String[] args) {

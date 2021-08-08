@@ -1,3 +1,5 @@
+package fallout;
+
 public class Fallout {
 
     public int solve(int[] k) {
