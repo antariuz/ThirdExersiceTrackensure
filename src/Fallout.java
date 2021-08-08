@@ -1,22 +1,21 @@
 public class Fallout {
+
     public int solve(int[] k) {
-        int temp = 0;
-        int fallout = 0;
-        for (int value : k) {
-            temp = Math.max(temp, value);
-        }
-        for (int i = 1; i <= temp; i++) {
-            for (int j = 1; j < k.length - 1; j++) {
-                if (k[j] == i) {
-                    for (int l = k[j + 1]; l < k.length - 1; l++) {
-                        if (l == i) {
-                            fallout++;
-                            break;
-                        }
-                    }
-                }
+        int result = 0;
+        int left;
+        int right;
+        for (int i = 1; i < k.length - 1; i++) {
+            left = k[i];
+            for (int j = 0; j < i; j++) {
+                left = Math.max(left, k[j]);
             }
+            right = k[i];
+            for (int l = i + 1; l < k.length; l++) {
+                right = Math.max(right, k[l]);
+            }
+            result += Math.min(left, right) - k[i];
         }
-        return fallout;
+        return result;
     }
+
 }
